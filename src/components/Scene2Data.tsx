@@ -144,7 +144,7 @@ export function Scene2Data({ query, onBack }: Scene2DataProps) {
 
   if (!showCharts) {
     return (
-      <div className="min-h-screen bg-[#0B0F19] text-slate-200 font-sans flex flex-col items-center justify-center relative overflow-hidden p-6">
+      <div className="min-h-screen bg-[#1E2030] text-slate-200 font-sans flex flex-col items-center justify-center relative overflow-hidden p-6">
         {/* Background effects */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-900/20 rounded-full blur-[100px] pointer-events-none"></div>
         
@@ -210,7 +210,7 @@ export function Scene2Data({ query, onBack }: Scene2DataProps) {
   }
 
   return (
-    <div className="min-h-screen bg-[#0B0F19] text-slate-200 font-sans flex flex-col selection:bg-blue-900/50">
+    <div className="min-h-screen bg-[#1E2030] text-slate-200 font-sans flex flex-col selection:bg-blue-900/50">
       {/* Header */}
       <header className="flex items-center justify-between px-6 py-4 bg-slate-900/50 backdrop-blur-md border-b border-slate-800 sticky top-0 z-20 shadow-sm">
         <div className="flex items-center gap-4">
@@ -231,8 +231,8 @@ export function Scene2Data({ query, onBack }: Scene2DataProps) {
             <Bell className="w-5 h-5" />
             <span className="absolute top-2.5 right-2.5 w-2 h-2 bg-red-500 rounded-full border-2 border-slate-900"></span>
           </button>
-          <div className="w-10 h-10 rounded-xl overflow-hidden border border-slate-700 cursor-pointer">
-            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=100&h=100" alt="User" className="w-full h-full object-cover" />
+          <div className="w-10 h-10 rounded-xl overflow-hidden border border-slate-700 cursor-pointer bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
+            <span className="text-white text-sm font-bold">U</span>
           </div>
         </div>
       </header>

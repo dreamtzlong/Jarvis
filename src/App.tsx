@@ -44,7 +44,7 @@ export default function App() {
   // Landing Page for Video Shoot Setup
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-6 font-sans">
-      <div className="max-w-3xl w-full bg-white rounded-2xl shadow-xl border border-gray-100 p-12">
+      <div className="max-w-5xl w-full bg-white rounded-2xl shadow-xl border border-gray-100 p-12">
         <div className="flex items-center justify-center mb-8">
           <div className="w-16 h-16 bg-indigo-600 rounded-2xl flex items-center justify-center shadow-lg shadow-indigo-600/20">
             <LayoutDashboard className="w-8 h-8 text-white" />

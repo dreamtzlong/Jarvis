@@ -16,15 +16,15 @@ export function Scene3Deploy({ onBack }: Scene3DeployProps) {
     setIsDeploying(true);
     setProgress(0);
     setIsSuccess(false);
-    setLogs(['[System] Initiating deployment sequence...']);
+    setLogs(['[系统] 正在启动部署流程...']);
 
     const steps = [
-      { p: 15, log: '[Build] Compiling assets and optimizing bundles...' },
-      { p: 35, log: '[Test] Running unit and integration test suites...' },
-      { p: 50, log: '[Docker] Building container image v2.4.1...' },
-      { p: 75, log: '[Registry] Pushing image to container registry...' },
-      { p: 90, log: '[K8s] Updating deployment manifests...' },
-      { p: 100, log: '[System] Traffic routed to new version successfully.' }
+      { p: 15, log: '[构建] 正在编译资源并优化打包...' },
+      { p: 35, log: '[测试] 正在运行单元测试和集成测试...' },
+      { p: 50, log: '[容器] 正在构建 Docker 镜像 v2.4.1...' },
+      { p: 75, log: '[仓库] 正在推送镜像到容器仓库...' },
+      { p: 90, log: '[K8s] 正在更新部署配置...' },
+      { p: 100, log: '[系统] 流量已成功切换到新版本。' }
     ];
 
     let currentStep = 0;
@@ -61,44 +61,37 @@ export function Scene3Deploy({ onBack }: Scene3DeployProps) {
         </div>
         
         <div className="flex-1 py-6 px-4 space-y-1">
-          <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Main Menu</div>
+          <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">主菜单</div>
           <button className="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors">
-            <LayoutDashboard className="w-5 h-5 text-gray-400" /> Dashboard
+            <LayoutDashboard className="w-5 h-5 text-gray-400" /> 仪表盘
           </button>
           <button className="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg bg-blue-50 text-blue-700 transition-colors">
-            <Rocket className="w-5 h-5 text-blue-600" /> Releases
+            <Rocket className="w-5 h-5 text-blue-600" /> 版本发布
           </button>
           <button className="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors">
-            <GitBranch className="w-5 h-5 text-gray-400" /> Branches
+            <GitBranch className="w-5 h-5 text-gray-400" /> 分支管理
           </button>
           <button className="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors">
-            <History className="w-5 h-5 text-gray-400" /> Audit Logs
+            <History className="w-5 h-5 text-gray-400" /> 操作日志
           </button>
         </div>
         
         <div className="p-4 border-t border-gray-100">
           <button className="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors">
-            <Settings className="w-5 h-5 text-gray-400" /> Settings
+            <Settings className="w-5 h-5 text-gray-400" /> 设置
           </button>
         </div>
       </div>
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col h-screen overflow-hidden relative">
-        <button 
-          onClick={onBack}
-          className="absolute top-4 right-6 text-gray-400 hover:text-gray-600 transition-colors z-50 text-sm font-medium bg-white px-3 py-1.5 rounded-full shadow-sm border border-gray-200"
-        >
-          退出演示
-        </button>
-
         <header className="h-16 bg-white border-b border-gray-200 flex items-center px-8 shrink-0">
           <div className="flex items-center text-sm text-gray-500">
-            <span>Projects</span>
+            <span>项目</span>
             <ChevronRight className="w-4 h-4 mx-1" />
             <span>Hotel Core</span>
             <ChevronRight className="w-4 h-4 mx-1" />
-            <span className="font-medium text-gray-900">Releases</span>
+            <span className="font-medium text-gray-900">版本发布</span>
           </div>
         </header>
 
@@ -106,8 +99,8 @@ export function Scene3Deploy({ onBack }: Scene3DeployProps) {
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center justify-between mb-8">
               <div>
-                <h1 className="text-2xl font-bold text-gray-900 mb-1">Release Management</h1>
-                <p className="text-gray-500 text-sm">Manage and deploy versions to production environments.</p>
+                <h1 className="text-2xl font-bold text-gray-900 mb-1">版本发布管理</h1>
+                <p className="text-gray-500 text-sm">管理并部署版本到生产环境。</p>
               </div>
               <button 
                 onClick={startDeploy}
@@ -115,7 +108,7 @@ export function Scene3Deploy({ onBack }: Scene3DeployProps) {
                 className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors shadow-sm shadow-blue-600/20 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Play className="w-4 h-4 fill-current" />
-                New Release (发版)
+                新版本发布
               </button>
             </div>
 
@@ -124,11 +117,11 @@ export function Scene3Deploy({ onBack }: Scene3DeployProps) {
               <table className="w-full text-left text-sm">
                 <thead className="bg-gray-50 border-b border-gray-200 text-gray-500 font-medium">
                   <tr>
-                    <th className="px-6 py-4">Version</th>
-                    <th className="px-6 py-4">Status</th>
-                    <th className="px-6 py-4">Environment</th>
-                    <th className="px-6 py-4">Author</th>
-                    <th className="px-6 py-4 text-right">Date</th>
+                    <th className="px-6 py-4">版本号</th>
+                    <th className="px-6 py-4">状态</th>
+                    <th className="px-6 py-4">环境</th>
+                    <th className="px-6 py-4">发布人</th>
+                    <th className="px-6 py-4 text-right">日期</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
@@ -138,12 +131,12 @@ export function Scene3Deploy({ onBack }: Scene3DeployProps) {
                     </td>
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700">
-                        <div className="w-1.5 h-1.5 rounded-full bg-green-500"></div> Active
+                        <div className="w-1.5 h-1.5 rounded-full bg-green-500"></div> 运行中
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-gray-600">Production</td>
-                    <td className="px-6 py-4 text-gray-600">Alex Chen</td>
-                    <td className="px-6 py-4 text-gray-500 text-right">2 days ago</td>
+                    <td className="px-6 py-4 text-gray-600">生产环境</td>
+                    <td className="px-6 py-4 text-gray-600">陈志远</td>
+                    <td className="px-6 py-4 text-gray-500 text-right">2 天前</td>
                   </tr>
                   <tr className="hover:bg-gray-50 transition-colors">
                     <td className="px-6 py-4 font-medium text-gray-900 flex items-center gap-2">
@@ -151,12 +144,12 @@ export function Scene3Deploy({ onBack }: Scene3DeployProps) {
                     </td>
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
-                        <div className="w-1.5 h-1.5 rounded-full bg-gray-400"></div> Inactive
+                        <div className="w-1.5 h-1.5 rounded-full bg-gray-400"></div> 已停用
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-gray-600">Production</td>
-                    <td className="px-6 py-4 text-gray-600">Sarah Lin</td>
-                    <td className="px-6 py-4 text-gray-500 text-right">1 week ago</td>
+                    <td className="px-6 py-4 text-gray-600">生产环境</td>
+                    <td className="px-6 py-4 text-gray-600">林晓华</td>
+                    <td className="px-6 py-4 text-gray-500 text-right">1 周前</td>
                   </tr>
                   <tr className="hover:bg-gray-50 transition-colors">
                     <td className="px-6 py-4 font-medium text-gray-900 flex items-center gap-2">
@@ -164,12 +157,12 @@ export function Scene3Deploy({ onBack }: Scene3DeployProps) {
                     </td>
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
-                        <div className="w-1.5 h-1.5 rounded-full bg-gray-400"></div> Inactive
+                        <div className="w-1.5 h-1.5 rounded-full bg-gray-400"></div> 已停用
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-gray-600">Production</td>
-                    <td className="px-6 py-4 text-gray-600">Alex Chen</td>
-                    <td className="px-6 py-4 text-gray-500 text-right">2 weeks ago</td>
+                    <td className="px-6 py-4 text-gray-600">生产环境</td>
+                    <td className="px-6 py-4 text-gray-600">陈志远</td>
+                    <td className="px-6 py-4 text-gray-500 text-right">2 周前</td>
                   </tr>
                 </tbody>
               </table>
@@ -194,7 +187,7 @@ export function Scene3Deploy({ onBack }: Scene3DeployProps) {
               >
                   <div className="p-8">
                     <div className="flex items-center justify-between mb-6">
-                      <h2 className="text-xl font-bold text-gray-900">Deploying v2.4.1</h2>
+                      <h2 className="text-xl font-bold text-gray-900">正在部署 v2.4.1</h2>
                       <span className="text-blue-600 font-mono font-medium">{Math.floor(progress)}%</span>
                     </div>
                     
@@ -215,7 +208,7 @@ export function Scene3Deploy({ onBack }: Scene3DeployProps) {
                           key={i}
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
-                          className={log.includes('System') ? 'text-blue-400' : ''}
+                          className={log.includes('系统') ? 'text-blue-400' : ''}
                         >
                           {log}
                         </motion.div>
@@ -230,32 +223,37 @@ export function Scene3Deploy({ onBack }: Scene3DeployProps) {
           )}
         </AnimatePresence>
 
-        {/* Success Toast Notification */}
+        {/* Success Modal */}
         <AnimatePresence>
           {isSuccess && (
-            <motion.div 
-              initial={{ opacity: 0, y: -50, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ type: "spring", bounce: 0.4 }}
-              className="absolute top-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 bg-white px-6 py-4 rounded-2xl shadow-xl border border-gray-100"
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 z-50 flex items-center justify-center bg-gray-900/40 backdrop-blur-sm p-4"
             >
-              <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center shrink-0">
-                <CheckCircle2 className="w-6 h-6 text-green-600" />
-              </div>
-              <div className="pr-4">
-                <h3 className="text-gray-900 font-bold text-lg">功能已上线</h3>
-                <p className="text-gray-500 text-sm">Version v2.4.1 has been deployed.</p>
-              </div>
-              <button 
-                onClick={() => {
-                  setIsSuccess(false);
-                  setIsDeploying(false);
-                }}
-                className="ml-4 text-gray-400 hover:text-gray-600"
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                transition={{ type: "spring", bounce: 0.35 }}
+                className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden text-center p-10"
               >
-                关闭
-              </button>
+                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <CheckCircle2 className="w-10 h-10 text-green-600" />
+                </div>
+                <h3 className="text-gray-900 font-bold text-2xl mb-3">发布成功</h3>
+                <p className="text-gray-500 text-base mb-8">版本 v2.4.1 已成功部署到生产环境。</p>
+                <button
+                  onClick={() => {
+                    setIsSuccess(false);
+                    setIsDeploying(false);
+                  }}
+                  className="px-8 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
+                >
+                  确定
+                </button>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
